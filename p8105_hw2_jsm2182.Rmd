@@ -1,0 +1,7 @@
+---
+author: "Jennifer Mizhquiri Barbecho"
+title: "Homework 2: Data Wrangling 1"
+output: github_document
+---
+
+
