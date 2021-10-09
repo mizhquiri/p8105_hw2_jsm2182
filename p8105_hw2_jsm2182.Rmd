@@ -31,3 +31,11 @@ tail(trashwheels_data)
 #note for later, December is misspelled "Decemeber"
 ```
 
+## Clean 2018 Precipitation Data
+```{r}
+precip_2018_data = read_excel ("./data/Trash-Wheel-Collection-Totals-7-2020-2.xlsx", 
+                               sheet = "2018 Precipitation",
+                               skip = 1)
+precip_2018_data = janitor:: clean_names(precip_2018_data)
+```
+
