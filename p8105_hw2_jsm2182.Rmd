@@ -4,4 +4,17 @@ title: "Homework 2: Data Wrangling 1"
 output: github_document
 ---
 
+```{r setup}
+library(tidyverse)
+```
+
+## Read in some data
+
+Read in the trashweels 2020 dataset.
+
+```{r}
+library(readxl)
+trashweels_data = read_excel("./data/Trash-Wheel-Collection-Totals-7-2020-2.xlsx")
+```
+
 
