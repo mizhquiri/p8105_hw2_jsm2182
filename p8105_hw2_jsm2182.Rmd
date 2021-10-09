@@ -14,14 +14,20 @@ Read in the trashweels 2020 dataset.
 
 ```{r}
 library(readxl)
-trashweels_data = read_excel("./data/Trash-Wheel-Collection-Totals-7-2020-2.xlsx")
+trashwheels_data = read_excel("./data/Trash-Wheel-Collection-Totals-7-2020-2.xlsx")
 
-trashweels_data = janitor::clean_names(trashweels_data)
+trashwheels_data = janitor::clean_names(trashwheels_data)
 ```
 
 ## Take a look at the data
 
+Printing in th console
 ```{r}
-trashweels_data
+trashwheels_data
+```
+
+```{r}
+tail(trashwheels_data)
+#note for later, December is misspelled "Decemeber"
 ```
 
