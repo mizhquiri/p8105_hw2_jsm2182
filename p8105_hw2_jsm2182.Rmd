@@ -3,38 +3,18 @@ author: "Jennifer Mizhquiri Barbecho"
 title: "Homework 2: Data Wrangling 1"
 output: github_document
 ---
-
+**Problem 1**
 ```{r setup}
 library(tidyverse)
-```
-
-## Read in some data
-
-Read in the trashweels 2020 dataset.
-
-```{r}
 library(readxl)
-trashwheels_data = read_excel("./data/Trash-Wheel-Collection-Totals-7-2020-2.xlsx")
-
-trashwheels_data = janitor::clean_names(trashwheels_data)
-```
-
-## Take a look at the data
-
-Printing in th console
-```{r}
-trashwheels_data
-```
-
-```{r, message =FALSE}
-tail(trashwheels_data)
-#note for later, December is misspelled "Decemeber"
 ```
 
 ## Clean 2018 Precipitation Data
 ```{r}
-precip_2018_data = read_excel ("./data/Trash-Wheel-Collection-Totals-7-2020-2.xlsx", 
-  sheet = "2018 Precipitation",skip = 1) %>% 
+
+precip_2018_data = 
+  read_excel ("./data/Trash-Wheel-Collection-Totals-7-2020-2.xlsx", 
+  sheet = "2018 Precipitation", skip = 1) %>% 
   janitor::clean_names() %>%
   mutate(year = 2018) %>% 
   drop_na()
@@ -49,5 +29,15 @@ precip_2019_data = read_excel ("./data/Trash-Wheel-Collection-Totals-7-2020-2.xl
   janitor::clean_names() %>%
   mutate(year = 2019) %>% 
   drop_na()
+```
+
+## Combine the Data 
+
+```{r}
+precip_combined_data = 
+  bind_rows(precip_2018_data,precip_2019_data) %>% 
+  mutate(month = month.name[month])
+
+precip_combined_data
 ```
 
