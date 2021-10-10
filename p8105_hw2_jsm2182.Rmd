@@ -9,6 +9,16 @@ library(tidyverse)
 library(readxl)
 ```
 
+```{r}
+trashwheels_data = 
+  read_excel ("./data/Trash-Wheel-Collection-Totals-7-2020-2.xlsx", 
+  sheet = "Mr. Trash Wheel", skip = 1) %>% 
+  janitor::clean_names() %>%
+  drop_na (dumpster)
+```
+Note, that the sports balls variable was already containing integers
+
+
 ## Clean 2018 Precipitation Data
 ```{r}
 
@@ -40,4 +50,8 @@ precip_combined_data =
 
 precip_combined_data
 ```
+
+The data provided precipitation data for 2018 and 2019, specifically `r names(precip_combined_data)`(n.b. precipitation is measured in inches). 
+
+**Problem 2**
 
