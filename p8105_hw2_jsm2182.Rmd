@@ -3,7 +3,7 @@ author: "Jennifer Mizhquiri Barbecho"
 title: "Homework 2: Data Wrangling 1"
 output: github_document
 ---
-**Problem 1**
+**Problem 1** 
 ```{r setup}
 library(tidyverse)
 library(readxl)
@@ -14,7 +14,10 @@ trashwheels_data =
   read_excel ("./data/Trash-Wheel-Collection-Totals-7-2020-2.xlsx", 
   sheet = "Mr. Trash Wheel", skip = 1) %>% 
   janitor::clean_names() %>%
-  drop_na (dumpster)
+  drop_na (dumpster) %>% 
+  round(sports_balls, digits = 0)
+
+trashwheels_data
 ```
 Note, that the sports balls variable was already containing integers
 
@@ -46,7 +49,8 @@ precip_2019_data = read_excel ("./data/Trash-Wheel-Collection-Totals-7-2020-2.xl
 ```{r}
 precip_combined_data = 
   bind_rows(precip_2018_data,precip_2019_data) %>% 
-  mutate(month = month.name[month])
+  mutate(month = month.name[month]) %>% 
+  rename(precip_total = total)
 
 precip_combined_data
 ```
@@ -54,4 +58,11 @@ precip_combined_data
 The data provided precipitation data for 2018 and 2019, specifically `r names(precip_combined_data)`(n.b. precipitation is measured in inches). 
 
 **Problem 2**
+
+```{r, eval = FALSE}
+pols_month_data = read_csv ("pols-month.csv") %>% 
+  separate(mon, c('year', 'month' , 'day'), sep = "-")
+
+```
+
 
